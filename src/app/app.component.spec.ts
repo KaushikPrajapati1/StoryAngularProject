@@ -24,14 +24,7 @@ describe('AppComponent', () => {
    
   
    }
-   let ELEMENTS: Element[];
- 
-   
-   class paginator  {
-   public firstPage(){
-      ()=>{'test function'}
-    }
-      }
+  
   beforeEach(async () => {
   
     await TestBed.configureTestingModule({
@@ -39,26 +32,13 @@ describe('AppComponent', () => {
         RouterTestingModule,HttpClientTestingModule,BrowserModule,MatInputModule,MatPaginatorModule,MatChipsModule,BrowserAnimationsModule,
         NoopAnimationsModule,MatProgressSpinnerModule
       ],
-      providers:[{provider: HackerStoryServiceService, useValue : mockSkillAddService}, paginator  ],
+      providers:[{provider: HackerStoryServiceService, useValue : mockSkillAddService}  ],
       declarations: [
         AppComponent
       ],
     }).compileComponents();
   });
 
-
-  beforeEach(()=>{
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    let x :any;
-    app.ELEMENTS = x;
-    app.datasource=MockData;
-    app.datasource.paginator = paginator;
-    app.datasource.sort = true;
-    app.isLoading=false;
-    fixture.detectChanges();
-
-  })
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
