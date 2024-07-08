@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { StoryangulartableComponent } from './storyangulartable/storyangulartable.component';
+//import { StoryangulartableComponent } from './storyangulartable/storyangulartable.component';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-const routes: Routes = [{path:"",component:StoryangulartableComponent},
+const routes: Routes = [{ path: "", component: AppComponent },
 {path:"Dashboard",component:DashboardComponent},
-{path:"HackerStoryList",component:StoryangulartableComponent},
+//{path:"HackerStoryList",component:StoryangulartableComponent},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

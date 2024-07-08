@@ -15,6 +15,7 @@ export class AppComponent implements OnInit{
   title = 'Hacker Story';
   pager!: Pager;
   
+  label = 'sample';
   isLoading:boolean = true;
   ELEMENTS: Element[]=[];
   sortProperty: string = 'id';
@@ -26,13 +27,6 @@ export class AppComponent implements OnInit{
     @ViewChild(MatSort)
   sort: MatSort = new MatSort;
     constructor(private apiService: HackerStoryServiceService ){
-    
-
-      
-      
-      
-    }
-    getdata(){
       
     }
     ngOnInit(){
@@ -67,14 +61,23 @@ export class AppComponent implements OnInit{
               },
             )
     }
-    applyFilter(event : Event){
-      const filterValue = (event.target as HTMLInputElement).value;
-      this.datasource.filter =  filterValue.trim().toLocaleLowerCase()
+    applyFilter(event : any){
 
-      if(this.datasource.paginator){
-        this.datasource.paginator.firstPage()
-      }
+      //const filterValue = (event.target as HTMLInputElement).value;
+      //this.label = (event.target as HTMLInputElement).value;
+      //if ((event.target as HTMLInputElement)?.value) {
+        // do stuff
+        this.label = event.target == undefined  || event.target== null ? '':event.target.value;
+        this.datasource.filter =  this.label.trim().toLocaleLowerCase()
 
+        if(this.datasource.paginator){
+          this.datasource.paginator.firstPage();
+         }
+  
+      //}
+ //   this.label = event.target.value;
+      //  this.label ="sample";
+    
     }
 }
 export interface Pager {
